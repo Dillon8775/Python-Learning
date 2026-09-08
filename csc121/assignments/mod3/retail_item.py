@@ -14,10 +14,10 @@ class RetailItem:
     """
     @override
     def __init__(self, upc:int, description:str, price:float, quantity:int):
-        self.upc = upc
-        self.description = description
-        self.price = price
-        self.quantity = quantity
+        self.__upc = upc
+        self.__description = description
+        self.__price = price
+        self.__quantity = quantity
 
     """
     Returns True if another RetailItem UPC is the same as this one.
@@ -27,33 +27,33 @@ class RetailItem:
         if not isinstance(other, RetailItem):
             return NotImplemented
 
-        return self.upc == other.upc
+        return self.__upc == other.__upc
 
     # Getters
     def get_upc(self) -> int:
-        return self.upc
+        return self.__upc
 
     def get_description(self) -> str:
-        return self.description
+        return self.__description
 
     def get_price(self) -> float:
-        return self.price
+        return self.__price
 
     def get_quantity(self) -> int:
-        return self.quantity
+        return self.__quantity
 
     # Setters/Mutators
     def set_upc(self, upc:int):
-        self.upc = upc
+        self.__upc = upc
 
     def set_description(self, description:str):
-        self.description = description
+        self.__description = description
 
     def set_price(self, price:float):
-        self.price = price
+        self.__price = price
 
     def set_quantity(self, quantity:int):
-        self.quantity = quantity
+        self.__quantity = quantity
 
 """
 Define the main method for the user
@@ -79,7 +79,7 @@ def main():
     # Check if UPC already exists
     found:bool = False
     for r in existing_retail_items:
-        if (r.__eq__(user_retail_item)):
+        if r.__eq__(user_retail_item):
             print("This item already exists in our inventory!")
             found = True
             break

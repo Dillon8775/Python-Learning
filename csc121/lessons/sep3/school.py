@@ -6,14 +6,15 @@ By: D. Strickland
 
 __author__ = "Dillon Strickland"
 
+# Defines the Course class
 class Course:
     """
     Class to represent a course with code, description, and number of credit hours
     """
-    def __init__(self, code, description, credit_hours):
-        self.code = code
-        self.description = description
-        self.credit_hours = credit_hours
+    def __init__(self, code:str, description:str, credit_hours:float):
+        self.__code = code
+        self.__description = description
+        self.__credit_hours = credit_hours
 
     def get_code(self):
         return self.__code
@@ -39,12 +40,17 @@ class Course:
         :return: str
         """
         return (
-            f"Course Code: {self.code}\n"
-            f"Course Description: {self.description}\n"
-            f"Course Credit Hours: {self.credit_hours}"
+            f"Course Code: {self.__code}\n"
+            f"Course Description: {self.__description}\n"
+            f"Course Credit Hours: {self.__credit_hours}"
         )
 
-csc121 = Course("CSC121", "Python Programming", 3)
+# Testing
+def main():
+    csc121 = Course("CSC121", "Python Programming", 3)
+    # print(csc121) - prints object in memory
+    print(csc121)
 
-# print(csc121) - prints object in memory
-print(csc121)
+# Run test main method
+if __name__ == "__main__":
+    main()
